@@ -1,12 +1,14 @@
-"""
-Language parser for erlang
-"""
-
 import re
 from lizard_languages.code_reader import CodeReader, CodeStateMachine
 import pygments.token as py_token
 from pygments import lex, lexers
 
+branch_coverage = {}
+
+def log_branch(branch_id):
+    if branch_id not in branch_coverage:
+        branch_coverage[branch_id] = 0
+    branch_coverage[branch_id] += 1
 
 class ErlangReader(CodeReader):
     # pylint: disable=R0903
@@ -93,12 +95,16 @@ class ErlangStates(CodeStateMachine):
 
     def _state_nested_end(self, token):
         if token == '.' or token == ',':
+            log_branch(95)  # Branch ID: 95
             if len(self.context.stacked_functions) > 1 \
                     and self.context.stacked_functions[-1].name == 'fun':
+                log_branch(96)  # Branch ID: 96
                 self.statemachine_return()
+                log_branch(98)  # Branch ID: 98
                 return
-
+        log_branch(99)  # Branch ID: 99
         self._state = self._state_global
+        log_branch(100)  # Branch ID: 100
 
     def func_match_failed(self, token):
         self.punctuated = False
