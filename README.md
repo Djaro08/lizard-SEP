@@ -55,6 +55,7 @@ this is the output of the instrumentation after running the tests:
 For my first function, I chose next_if from code_reader.py Here is the link to the commit that shows how I measured branch coverage: 
 https://github.com/terryyin/lizard/commit/ac372cf7ce1fce86053129575f32545fedf72ec9
 
+
 here is the output of the coverage measurement: 
 ![nextif_coverage](https://github.com/terryyin/lizard/assets/121450186/a5457074-ae30-4557-b34c-4214efe0552f)
 
@@ -128,6 +129,8 @@ This covers the condition if token == '.' or token == ',' and checks the inner c
 
 Here is the link for the first improved test: https://github.com/terryyin/lizard/commit/1e9ad5d8fae75b5300cd4adefafd95508a2ca1af
 
+Before improving, the coverage was at 97% and I improved it to 99%. This could be done because I covered two more branches than the original coverage. This was achieved with the test functions test_next_if_token_equal and test_next_if_token_not_equal
+
 Old coverage result: 
 
 ![nexif_original](https://github.com/terryyin/lizard/assets/121450186/801ad305-66eb-4a5e-a945-5f502cf8e51f)
@@ -140,6 +143,8 @@ New coverage result:
 <Test 2>
 Here is the link for the second improved test: https://github.com/terryyin/lizard/commit/85d5001cb3c5457f7da97b3cc24f146e0df2f81f
 
+The old coverage was at 93% and I managed to improve it to 95% by covering two more branches compared to the original tests. These branches were covered with the tests test_with_func_attribute and test_without_func_attribute
+
 Old coverage result:
 
 ![Screenshot 2024-06-16 194931](https://github.com/terryyin/lizard/assets/121450186/112cf0fe-13a7-4547-9c2b-cb753002d672)
@@ -147,9 +152,6 @@ Old coverage result:
 New coverage result:
 
 ![Screenshot 2024-06-16 200304](https://github.com/terryyin/lizard/assets/121450186/5cf02840-5cb4-4880-a2c9-73182c1d8b04)
-
-<State the coverage improvement with a number and elaborate on why the coverage is improved>
-
 
 ## Darian de Graaf
 
