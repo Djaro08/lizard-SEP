@@ -53,12 +53,13 @@ this is the output of the instrumentation after running the tests:
 ## Kristóf Földházi
 
 For my first function, I chose next_if from code_reader.py Here is the link to the commit that shows how I measured branch coverage: 
-LINK
+https://github.com/terryyin/lizard/commit/ac372cf7ce1fce86053129575f32545fedf72ec9
 
 here is the output of the coverage measurement: 
 ![nextif_coverage](https://github.com/terryyin/lizard/assets/121450186/a5457074-ae30-4557-b34c-4214efe0552f)
 
-As for my second function, I choose get_method from lizardnd.py. Here is the link to the commit that shows how I measured branch coverage: LINK
+As for my second function, I choose get_method from lizardnd.py. Here is the link to the commit that shows how I measured branch coverage: 
+https://github.com/terryyin/lizard/commit/265349a6d9356796f8cbecca023e1d0d794d7bf8
 
 here is the output of the coverage measurement: 
 ![lizad_nd_branch_coverage](https://github.com/terryyin/lizard/assets/121450186/f4d6e975-55b5-4ee1-86ac-3d6f6ca8bcd2)
@@ -130,17 +131,13 @@ Here is the link for the first improved test: https://github.com/terryyin/lizard
 Old coverage result: 
 
 ![nexif_original](https://github.com/terryyin/lizard/assets/121450186/801ad305-66eb-4a5e-a945-5f502cf8e51f)
-
 New coverage result: 
 
 ![nextif_after](https://github.com/terryyin/lizard/assets/121450186/98aedc2e-34ab-4c2f-b133-60cb5c6eac7a)
 
 
----
-
-
-
-Here is the link for the second improved test: LINK
+<Test 2>
+Here is the link for the second improved test: https://github.com/terryyin/lizard/commit/85d5001cb3c5457f7da97b3cc24f146e0df2f81f
 Old coverage result:
 ![Screenshot 2024-06-16 194931](https://github.com/terryyin/lizard/assets/121450186/112cf0fe-13a7-4547-9c2b-cb753002d672)
 
