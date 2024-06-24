@@ -6,6 +6,31 @@ import re
 from .code_reader import CodeStateMachine, CodeReader
 
 
+
+branch_coverage = {
+    "fortran_01" : False,
+    "fortran_02" : False,
+    "fortran_03" : False,
+    "fortran_04" : False,
+    "fortran_05" : False,
+    "fortran_06" : False,
+    "fortran_07" : False,
+    "fortran_08" : False,
+    "fortran_09" : False,
+    "fortran_10" : False,
+    "fortran_11" : False,
+    "fortran_12" : False,
+    "fortran_13" : False,
+    "fortran_14" : False,
+    "fortran_15" : False,
+    "fortran_16" : False
+}
+
+def print_coverage():
+    for branch, hit in branch_coverage.items():
+        print(f"{branch} was {'hit' if hit else 'not hit'}")
+
+
 # pylint: disable=R0903
 class FortranCommentsMixin(object):
     @staticmethod
@@ -98,34 +123,48 @@ class FortranStates(CodeStateMachine):
     def _state_global(self, token):
         token_upper = token.upper()
         if token_upper in ('%', '::', 'SAVE', 'DATA'):
+            branch_coverage["fortran_01"] = True
             self._state = self._ignore_next
         elif token_upper in ('INTEGER', 'REAL','COMPLEX','LOGICAL', 'CHARACTER'):
             self._state = self._ignore_var
+            branch_coverage["fortran_02"] = True
         elif token == '(':
+            branch_coverage["fortran_03"] = True
             self.next(self._ignore_expr, token)
         elif token_upper in ('PROGRAM',):
+            branch_coverage["fortran_04"] = True
             self._state = self._namespace
         elif token_upper == 'MODULE':
+            branch_coverage["fortran_05"] = True
             self._state = self._module
         elif token_upper in ('SUBROUTINE', 'FUNCTION'):
+            branch_coverage["fortran_06"] = True
             self._state = self._function_name
         elif token_upper == 'TYPE':
+            branch_coverage["fortran_07"] = True
             self._state = self._type
         elif token_upper == 'IF':
+            branch_coverage["fortran_08"] = True
             self._state = self._if
         elif token_upper in ('BLOCK',):
+            branch_coverage["fortran_09"] = True
             self._state = self._ignore_if_paren
         elif token_upper in ('DO',):
+            branch_coverage["fortran_10"] = True
             self._state = self._ignore_if_label
         elif token_upper in ('FORALL', 'WHERE', 'SELECT', 'INTERFACE', 'ASSOCIATE'):
+            branch_coverage["fortran_11"] = True
             self.context.add_bare_nesting()
         elif token_upper == 'ELSE':
+            branch_coverage["fortran_12"] = True
             self.context.pop_nesting()
             self.context.add_bare_nesting()
         elif token_upper.replace(' ', '') == 'ELSEIF':
+            branch_coverage["fortran_13"] = True
             self.context.pop_nesting()
             self._state = self._if
         elif token_upper == 'END' or self._ends.match(token):
+            branch_coverage["fortran_14"] = True
             self.context.pop_nesting()
 
     def reset_state(self, token=None):
@@ -145,8 +184,10 @@ class FortranStates(CodeStateMachine):
 
     def _ignore_if_paren(self, token):
         if token == '(':
+            branch_coverage["fortran_15"] = True
             self.next(self._ignore_expr, token)
         else:
+            branch_coverage["fortran_16"] = True
             self.context.add_bare_nesting()
             self.reset_state()
 

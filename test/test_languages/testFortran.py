@@ -1,6 +1,7 @@
 import unittest
 from lizard import analyze_file, get_reader_for
 from lizard_languages import FortranReader
+from lizard_languages import fortran
 
 
 def get_fortran_fileinfo(source_code):
@@ -45,20 +46,45 @@ class TestFortran(unittest.TestCase):
         self.assertEqual('test2', result[1].name)
         self.assertEqual('test2( )', result[1].long_name)
 
-    def test_function(self):
+    def test_new_block(self):                       #test if BLOCK and its function 'ignore_if_paren" are working as intended
         result = get_fortran_function_list('''
+        BLOCK (
         FUNCTION test(a, b)
             REAL :: a
             REAL :: b
-        END FUNCTION test
-        function test2
-        endfunction test2
+        END FUNCTION test)
+        END BLOCK
+        BLOCK
+            function test2
+            endfunction test2
+        END BLOCK
+        function test3
+        endfunction test3
         ''')
-        self.assertEqual(2, len(result))
-        self.assertEqual('test', result[0].name)
-        self.assertEqual('test( a , b )', result[0].long_name)
-        self.assertEqual('test2', result[1].name)
-        self.assertEqual('test2( )', result[1].long_name)
+        self.assertEqual(1, len(result))
+        self.assertEqual('test3', result[0].name)
+        self.assertEqual('test3( )', result[0].long_name)
+
+
+    def test_program(self):                     #test if program is being parsed correctly
+        result = get_fortran_function_list('''
+        program test
+            interface operator (+)
+                module procedure concat
+            end interface
+            
+            subroutine test2
+            endsubroutine test2
+        end  test
+        ''')
+        self.assertEqual(1, len(result))
+        self.assertEqual('test::test2', result[0].name)
+        self.assertEqual('test::test2( )', result[0].long_name)
+        self.assertEqual(1, result[0].top_nesting_level)
+
+
+
+
 
     def test_module(self):
         result = get_fortran_function_list('''
@@ -185,3 +211,6 @@ class TestFortran(unittest.TestCase):
         self.assertEqual(2, len(result))
         self.assertEqual('test', result[0].name)
         self.assertEqual('test7', result[1].name)
+    
+    def test_run_coverage(self):
+        fortran.print_coverage()
