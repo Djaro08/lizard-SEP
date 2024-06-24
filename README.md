@@ -131,6 +131,7 @@ Here is the link for the first improved test: https://github.com/terryyin/lizard
 Old coverage result: 
 
 ![nexif_original](https://github.com/terryyin/lizard/assets/121450186/801ad305-66eb-4a5e-a945-5f502cf8e51f)
+
 New coverage result: 
 
 ![nextif_after](https://github.com/terryyin/lizard/assets/121450186/98aedc2e-34ab-4c2f-b133-60cb5c6eac7a)
@@ -138,12 +139,14 @@ New coverage result:
 
 <Test 2>
 Here is the link for the second improved test: https://github.com/terryyin/lizard/commit/85d5001cb3c5457f7da97b3cc24f146e0df2f81f
+
 Old coverage result:
+
 ![Screenshot 2024-06-16 194931](https://github.com/terryyin/lizard/assets/121450186/112cf0fe-13a7-4547-9c2b-cb753002d672)
 
 New coverage result:
-![Screenshot 2024-06-16 200304](https://github.com/terryyin/lizard/assets/121450186/5cf02840-5cb4-4880-a2c9-73182c1d8b04)
 
+![Screenshot 2024-06-16 200304](https://github.com/terryyin/lizard/assets/121450186/5cf02840-5cb4-4880-a2c9-73182c1d8b04)
 
 <State the coverage improvement with a number and elaborate on why the coverage is improved>
 
