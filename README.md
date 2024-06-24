@@ -169,9 +169,11 @@ The second test i made is called test_program. In the following commit you can s
 https://github.com/terryyin/lizard/commit/18f006521925030094da6b0c6d30bfcf9976146d
 
 The old coverage results
+
 ![output own coverage tool Darian](/Screenshots/Coverage_fortran_before.png)
 
 The new coverage results
+
 ![output own coverage tool Darian](/Screenshots/Coverage_fortran_after2.png)
 
 Before the second new test the coverage was 89% as stated above and after the second new test the coverage is improved to 91%.
