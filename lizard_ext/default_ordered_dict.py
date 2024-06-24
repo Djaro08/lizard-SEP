@@ -6,7 +6,7 @@ def log_branch(branch_id):
     if branch_id not in branch_coverage:
         branch_coverage[branch_id] = 0
     branch_coverage[branch_id] += 1
-    print(f"Branch {branch_id} executed")  # Print statement to log branch execution
+    print(f"Branch {branch_id} executed")  #print statement to log branch execution
 
 class DefaultOrderedDict(OrderedDict):
     def __init__(self, default_factory=None):
@@ -48,9 +48,9 @@ class DefaultOrderedDict(OrderedDict):
 
 if __name__ == "__main__":
     d = DefaultOrderedDict(int)
-    print(d["missing_key"])  # Should trigger __missing__ and default_factory
+    print(d["missing_key"])  # should trigger __missing__ and default_factory
     d2 = DefaultOrderedDict()
     try:
-        print(d2["missing_key"])  # Should raise KeyError
+        print(d2["missing_key"])  # should raise KeyError
     except KeyError:
         pass
