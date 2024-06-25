@@ -24,7 +24,7 @@ this gave the following output:
 
 ![output pytest](/Screenshots/Output_pytest.png)
 
-next we constructed the report by doing 'coverage report' and we downloaded this with 'coverage html'. the test also included some python packages that we ignored for this assigment and exluded them in the screenshots. the following two images are the result of 'coverage report' inside the terminal:
+Next, we constructed the report by doing 'coverage report' and we downloaded this with 'coverage html'. the test also included some Python packages that we ignored for this assignment and excluded them in the screenshots. the following two images are the result of the 'coverage report' inside the terminal:
 
 ![output coverage report 0](/Screenshots/Coverage_report0.png)
 ![output coverage report 1](/Screenshots/Coverage_report1.png)
@@ -181,24 +181,41 @@ The new coverage results
 
 ![output own coverage tool Darian](/Screenshots/Coverage_fortran_after2.png)
 
-Before the second new test the coverage was 89% as stated above and after the second new test the coverage is improved to 91%.
+Before the second new test, the coverage was 89% as stated above and after the second new test, the coverage improved to 91%.
 The new test covers one branch in the _state_global function, namely the PROGRAM branch, and tests if this branch is properly executed.
 
 
 ### Overall
 
 
-This is a screenshot of the old coverage results, we retrieved by running an existing tool (the same as we already showed above)
+This is a screenshot of the old coverage results. We retrieved by running an existing tool (the same as we already showed above)
 
 ![output coverage report 0](/Screenshots/Coverage_report0.png)
 ![output coverage report 1](/Screenshots/Coverage_report1.png)
 ![output coverage report 2](/Screenshots/Coverage_report2.png)
 
+The following screenshots show the improved coverage for all functions we improved. Sidenote: on the laptop of Daniel were some Python files that were included in the coverage report. We left them out of our results as they are not relevant for the coverage of the lizard files. besides this, we managed to improve the overall coverage by 1%.
 
-<Provide a screenshot of the new coverage results by running the existing tool using all test modifications made by the group>
 
+This is the prove that all the test pass on one computer. we have put a red line after the altered and created tests:
+![new coverage](/Screenshots/new_coverage0.png)
+
+These screenshots show that the coverage is improved after we merged the files and tested everything:
+![new coverage](/Screenshots/new_coverage1.png)
+![new coverage](/Screenshots/new_coverage2.png)
+
+As you can see, the coverage has been improved from 49% to 50%. This could have been more without the python files that are tested. (we decided to exclude this from the results as they are irrelevant).
 
 ## Statement of individual contributions
 
+Daniel Buis:
+Daniel made the improvements for the default_ordered_dict.py file and function and the erlang.py file regarding the _state_nested_end function. the test_own.py and test_own2.py files were created for this to test the improved coverage. He also created the overall results and statement of individual contribution
 
-<Write what each group member did>
+Darian de Graaf:
+Darian improved two functions in the Fortran.py: _state_global and _ignore_if_paren. He also updated the Fortran_test file with additional tests to improve coverage. 
+
+Kristóf Földházi:
+Kristof improved the next_if from code_reader.py and the get_method from lizardnd.py files. He created the test_next_if.py and the test_lizardnd.py for these files to improve coverage.
+
+These 3 team members have communicated clearly with each other and everyone met the internal deadlines.
+We did have a fourth team member, but he decided to drop out of the assignment. This has been communicated with the professor and he has been removed from the group in Canvas. 
